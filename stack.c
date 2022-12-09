@@ -6,11 +6,12 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:06:34 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/09 17:07:50 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/09 17:33:51 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "pushswap.h"
 
 void	printstack(int *stack, int top)
@@ -58,7 +59,7 @@ int	checker(int *stack, int top, char *toadd)
 	return (1);
 }
 
-int *stackcrea(int argc, char **argv, int *topa, int **stack_a)
+int	*stackcrea(int argc, char **argv, int *topa, int **stack_a)
 {
 	if (argc <= 2)
 	{
