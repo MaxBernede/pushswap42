@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:06:34 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/09 17:33:51 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/09 18:05:47 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ int	checker(int *stack, int top, char *toadd)
 	i = 0;
 	while (toadd[i])
 	{
-		if (toadd[i] <= 48 || toadd[i] >= 57)
+		if (toadd[i] < 48 || toadd[i] > 57)
 			return (0);
 		++i;
 	}
 	i = 0;
 	nb = atoi(toadd);
-	while (i <= top)
+	while (i < top)
 	{
 		if (stack[i] == nb)
 			return (0);
@@ -72,7 +72,7 @@ int	*stackcrea(int argc, char **argv, int *topa, int **stack_a)
 		--argc;
 		if (!checker(*stack_a, *topa, argv[argc]))
 		{
-			printf("Error arg\n");
+			printf("Error : dupplicated arg\n");
 			return (0);
 		}
 		(*stack_a)[*topa] = atoi(argv[argc]);
