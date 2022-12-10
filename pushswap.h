@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:19:46 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/09 17:40:59 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/10 18:44:40 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,18 @@ int		*stackcrea(int argc, char **argv, int *topa, int **stack_a);
 
 void	pusha(int **stack_a, int **stack_b, int *topa, int *topb);
 void	pushb(int **stack_a, int **stack_b, int *topa, int *topb);
-void	swapb(int **stack_b, int *topb, int show);
-void	swapa(int **stack_a, int *topa, int show);
-void	swaps(int **stack_a, int **stack_b, int *topa, int *topb);
+void	swap(int **stack, int top, char c);
+void	swaps(int **stack_a, int **stack_b, int topa, int topb);
 
-void	rotabs(int **stack_a, int **stack_b, int *topa, int *topb);
-void	rotb(int **stack_b, int *topb, int show);
-void	rota(int **stack_a, int *topa, int show);
+void	rotabs(int **stack_a, int **stack_b, int topa, int topb);
+void	rot(int **stack, int top, char c);
+void	revrotabs(int **stack_a, int **stack_b, int topa, int topb);
+void	revrot(int **stack, int top, char c);
 
-void	revrotabs(int **stack_a, int **stack_b, int *topa, int *topb);
-void	revrotb(int **stack_b, int *topb, int show);
-void	revrota(int **stack_a, int *topa, int show);
+int		returnpivot(int *arr, int top);
+
+int		ordered(int **stack, int top, char c);
+
+void	quicksort_a(int **stack_a, int *topa, int **stack_b, int *topb);
 
 #endif

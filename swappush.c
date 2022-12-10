@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/09 17:38:02 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/10 18:32:26 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,41 +39,25 @@ void	pushb(int **stack_a, int **stack_b, int *topa, int *topb)
 	printf("pb\n");
 }
 
-void	swapb(int **stack_b, int *topb, int show)
+void	swap(int **stack, int top, char c)
 {
 	int	temp;
 
-	if (*topb <= 0)
+	if (top <= 0)
 	{
 		printf("not enough in stack b for swap\n");
 		return ;
 	}
-	temp = (*stack_b)[*topb];
-	(*stack_b)[*topb] = (*stack_b)[*topb - 1];
-	(*stack_b)[*topb - 1] = temp;
-	if (!show)
-		printf("sb\n");
+	temp = (*stack)[top];
+	(*stack)[top] = (*stack)[top - 1];
+	(*stack)[top - 1] = temp;
+	if (c == 'b' || c == 'a')
+		printf("s%c\n", c);
 }
 
-void	swapa(int **stack_a, int *topa, int show)
+void	swaps(int **stack_a, int **stack_b, int topa, int topb)
 {
-	int	temp;
-
-	if (*topa <= 0)
-	{
-		printf("not enough in stack a for swap\n");
-		return ;
-	}
-	temp = (*stack_a)[*topa];
-	(*stack_a)[*topa] = (*stack_a)[*topa - 1];
-	(*stack_a)[*topa - 1] = temp;
-	if (!show)
-		printf("sa\n");
-}
-
-void	swaps(int **stack_a, int **stack_b, int *topa, int *topb)
-{
-	swapa(stack_a, topa, 1);
-	swapb(stack_b, topb, 1);
+	swap(stack_a, topa, 'c');
+	swap(stack_b, topb, 'c');
 	printf("ss\n");
 }
