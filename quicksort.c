@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:42:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/10 18:51:33 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/11 18:44:36 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,18 @@ void	quicksort_a(int **stack_a, int *topa, int **stack_b, int *topb)
 	printf("ONE QUICK\n");
 	if (ordered(stack_a, rest, 'a'))
 		return ;
+	printall(*stack_a, *topa, *stack_b, *topb);
 	pivot = returnpivot(*stack_a, rest);
 	while (rest)
 	{
-		printf("value : %d\n", (*stack_a)[0]);
-		if ((*stack_a)[0] < pivot)
+		printf("value : %d\n", (*stack_a)[*topa]);
+		if ((*stack_a)[*topa] < pivot)
 		{
 			pushb(stack_a, stack_b, topa, topb);
 			++push;
 		}
 		else
-			revrot(stack_a, *topa, 'a');
+			rot(stack_a, *topa, 'a');
 		--rest;
 	}
 	quicksort_a(stack_a, topa, stack_b, topb);

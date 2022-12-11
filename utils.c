@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:06:34 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/10 18:47:21 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/11 18:27:14 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 #include <stdlib.h>
 #include "pushswap.h"
 
-void	printstack(int *stack, int top)
-{
-	if (top <= 0)
-	{
-		printf("* * * Stack empty * * *\n");
-		return ;
-	}
-	while (top > 0)
-	{
-		--top;
-		printf("%d\n", stack[top]);
-	}
-}
-
 void	printall(int *stack_a, int topa, int *stack_b, int topb)
 {
-	printf("Stack A : \n");
-	printstack(stack_a, topa);
-	printf("Stack b : \n");
-	printstack(stack_b, topb);
+	int	i;
+
+	if (topa > topb)
+		i = topa;
+	else
+		i = topb;
+	while (i >= 0)
+	{
+		if (i <= topa)
+			printf("%d  ", stack_a[i]);
+		else
+			printf("   ");
+		if (i <= topb)
+			printf("%d", stack_b[i]);
+		printf("\n");
+		--i;
+	}
+	printf(" A  B\n");
 }
 
 int	checker(int *stack, int top, char *toadd)
