@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:19:46 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/12 17:22:27 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/12 18:11:59 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	rot(int **stack, int top, char c);
 void	revrotabs(int **stack_a, int **stack_b, int topa, int topb);
 void	revrot(int **stack, int top, char c);
 
-int		returnpivot(int *stack, int top);
+int		returnpivot(int *stack, int push, int top);
 
 void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push);
 void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push);

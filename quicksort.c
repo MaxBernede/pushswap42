@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:42:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/12 17:25:33 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/12 18:24:52 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ordered(int **stack, int push, char c, t_tops *top)
 	int	i;
 
 	i = 1;
-	printf("Ordered A check et push %d\n", push);
+	//printf("Ordered A check et push %d\n", push);
 	if (push <= 1)
 		return (1);
 	if ((push == 2) && ((*stack)[top->a - 1] < (*stack)[top->a]))
@@ -39,9 +39,10 @@ int	ordered(int **stack, int push, char c, t_tops *top)
 		swap(stack, top->a, 'a');
 		return (1);
 	}
-	while (i <= push)
+	while (i < push)
 	{
-		if ((*stack)[i - 1] < (*stack)[i])
+		//printf("a check %d %d\n",(*stack)[top->a-i],(*stack)[top->a-i + 1]);
+		if ((*stack)[top->a - i] < (*stack)[top->a - i + 1])
 			return (0);
 		++i;
 	}
@@ -60,9 +61,10 @@ int	orderedb(int **stack, int push, char c, t_tops *top)
 		swap(stack, top->b, 'b');
 		return (1);
 	}
-	while (i <= push)
+	while (i < push)
 	{
-		if ((*stack)[i - 1] > (*stack)[i])
+		printf("CHECK DE %d et %d\n",(*stack)[top->b - i],(*stack)[top->b - i + 1]);
+		if ((*stack)[top->b - i] > (*stack)[top->b - i + 1])
 			return (0);
 		++i;
 	}
@@ -76,9 +78,11 @@ void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push)
 	int	i;
 
 	push_b = 0;
+	printf("quicka : push : %d\n",push);
+	printall(*stack_a, top->a, *stack_b, top->b);
 	if (ordered(stack_a, push, 'a', top))
 		return ;
-	pivot = returnpivot(*stack_a, push);
+	pivot = returnpivot(*stack_a, push, top->a);
 	while (push)
 	{
 		if ((*stack_a)[(*top).a] < pivot)
@@ -102,9 +106,11 @@ void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push)
 	
 	i = push;
 	push_a = 0;
+	printf("quickb : push : %d\n",push);
+	printall(*stack_a, top->a, *stack_b, top->b);
 	if (orderedb(stack_b, push, 'b', top))
 		return (pushback_a(stack_a, stack_b, top, push));
-	pivot = returnpivot(*stack_b, push);
+	pivot = returnpivot(*stack_b, push, top->b);
 	while (push)
 	{
 		if ((*stack_b)[(*top).b] > pivot)

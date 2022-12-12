@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:22:46 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/12 17:11:53 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/12 18:20:32 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,21 @@ void	sort(int **arr, int n)
 	}
 }
 
-int	returnpivot(int *stack, int top)
+int	returnpivot(int *stack, int push, int top)
 {
 	int	*temp;
 	int	pivot;
 	int	i;
 
 	i = -1;
-	temp = malloc((top) * sizeof(int));
+	temp = malloc((push) * sizeof(int));
 	if (!temp)
 		return (0);
-	while (++i <= top)
-		temp[i] = stack[i];
-	sort(&temp, top);
-	pivot = temp[(top / 2)];
+	while (++i < push)
+		temp[i] = stack[top - push + i + 1];
+	sort(&temp, push);
+	pivot = temp[(push / 2)];
 	free(temp);
-	//printf("pivot mon couillon %d\n", pivot);
+	printf("pivot mon couillon %d\n", pivot);
 	return (pivot);
 }
