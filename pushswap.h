@@ -6,12 +6,18 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:19:46 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/11 18:44:54 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/12 11:54:10 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
+
+typedef	struct top
+{
+	int a;
+	int b;
+}	t_tops;
 
 void	printstack(int *stack, int top);
 void	printall(int *stack_a, int topa, int *stack_b, int topb);

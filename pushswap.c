@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:10:02 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/11 18:26:55 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/12 11:57:38 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@
 
 int	main(int argc, char **argv)
 {
-	int	*stack_a;
-	int	*stack_b;
-	int	topb;
-	int	topa;
+	int		*stack_a;
+	int		*stack_b;
+	t_tops	top;
+	int topa;
+	int topb;
 
+	top.a = -1;
+	top.b = -1;
 	topa = -1;
 	topb = -1;
 	stack_a = malloc((argc - 1) * sizeof(int));
@@ -29,7 +32,7 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (0);
 	quicksort_a(&stack_a, &topa, &stack_b, &topb);
-	printall(stack_a, topa, stack_b, topb);
+	printall(stack_a, top.a, stack_b, top.b);
 	return (0);
 }
 
