@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:42:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/12 18:24:52 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/13 00:20:03 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push)
 	int	pivot;
 	int	i;
 
+	i = push;
 	push_b = 0;
 	printf("quicka : push : %d\n",push);
 	printall(*stack_a, top->a, *stack_b, top->b);
@@ -94,7 +95,7 @@ void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push)
 			rot(stack_a, (*top).a, 'a');
 		--push;
 	}
-	quicksort_a(stack_a, stack_b, top, ((*top).a + 1));
+	quicksort_a(stack_a, stack_b, top, i - push_b);
 	quicksort_b(stack_a, stack_b, top, push_b);
 }
 
