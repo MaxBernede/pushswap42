@@ -6,14 +6,14 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:38:32 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/10 18:44:54 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/13 00:31:24 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "pushswap.h"
 
-void	rot(int **stack, int top, char c)
+int	rot(int **stack, int top, char c)
 {
 	int	last;
 	int	i;
@@ -28,6 +28,7 @@ void	rot(int **stack, int top, char c)
 	(*stack)[i] = last;
 	if (c == 'a' || c == 'b')
 		printf("r%c\n", c);
+	return (1);
 }
 
 void	rotabs(int **stack_a, int **stack_b, int topa, int topb)

@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:42:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 00:20:03 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/13 00:48:10 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,10 @@ void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push)
 	int	push_b;
 	int	pivot;
 	int	i;
+	int itenb;
 
 	i = push;
+	itenb = 0;
 	push_b = 0;
 	printf("quicka : push : %d\n",push);
 	printall(*stack_a, top->a, *stack_b, top->b);
@@ -88,13 +90,14 @@ void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push)
 	{
 		if ((*stack_a)[(*top).a] < pivot)
 		{
-			pushb(stack_a, stack_b, top);
+			itenb += pushb(stack_a, stack_b, top);
 			++push_b;
 		}
 		else
-			rot(stack_a, (*top).a, 'a');
+			itenb += rot(stack_a, (*top).a, 'a');
 		--push;
 	}
+	backa(stack_a, top->a, itenb, push_b);
 	quicksort_a(stack_a, stack_b, top, i - push_b);
 	quicksort_b(stack_a, stack_b, top, push_b);
 }
@@ -104,8 +107,10 @@ void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push)
 	int	pivot;
 	int	i;
 	int	push_a;
+	int	itenb;
 	
 	i = push;
+	itenb = 0;
 	push_a = 0;
 	printf("quickb : push : %d\n",push);
 	printall(*stack_a, top->a, *stack_b, top->b);
@@ -116,11 +121,11 @@ void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push)
 	{
 		if ((*stack_b)[(*top).b] > pivot)
 		{
-			pusha(stack_a, stack_b, top);
+			itenb += pusha(stack_a, stack_b, top);
 			++push_a;
 		}
 		else
-			rot(stack_b, (*top).b, 'b');
+			itenb += rot(stack_b, (*top).b, 'b');
 		--push;
 	}
 	quicksort_a(stack_a, stack_b, top, push_a);
