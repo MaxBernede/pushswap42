@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:42:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/12 17:10:36 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/12 17:25:33 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,31 +26,25 @@ void	pushback_a(int **stack_a, int **stack_b, t_tops *top, int push)
 	}
 }
 
-int	ordered(int **stack, int push, char c)
+int	ordered(int **stack, int push, char c, t_tops *top)
 {
 	int	i;
 
 	i = 1;
+	printf("Ordered A check et push %d\n", push);
 	if (push <= 1)
-	{
-		printf("petit stack donc OK\n");
 		return (1);
-	}
-	if ((push == 2) && ((*stack)[i - 1] < (*stack)[i]))
+	if ((push == 2) && ((*stack)[top->a - 1] < (*stack)[top->a]))
 	{
-		swap(stack, push - 1, 'a');
+		swap(stack, top->a, 'a');
 		return (1);
 	}
 	while (i <= push)
 	{
 		if ((*stack)[i - 1] < (*stack)[i])
-		{
-			printf("not sorted\n");
 			return (0);
-		}
 		++i;
 	}
-	printf("SORTED OK A\n");
 	return (1);
 }
 
@@ -69,13 +63,9 @@ int	orderedb(int **stack, int push, char c, t_tops *top)
 	while (i <= push)
 	{
 		if ((*stack)[i - 1] > (*stack)[i])
-		{
-			printf("not sorted\n");
 			return (0);
-		}
 		++i;
 	}
-	printf("SORTED OK B et push %d\n", push);
 	return (1);
 }
 
@@ -86,7 +76,7 @@ void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push)
 	int	i;
 
 	push_b = 0;
-	if (ordered(stack_a, push, 'a'))
+	if (ordered(stack_a, push, 'a', top))
 		return ;
 	pivot = returnpivot(*stack_a, push);
 	while (push)
