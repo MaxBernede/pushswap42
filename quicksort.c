@@ -6,13 +6,25 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:42:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/12 01:20:13 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/12 15:44:56 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "pushswap.h"
+
+void	pushback_a(int **stack_a, int **stack_b, t_tops *top, int push)
+{
+	int i;
+
+	i = 0;
+	while (i < push)
+	{
+		pusha(stack_a, stack_b, top);
+		++i;
+	}
+}
 
 int	ordered(int **stack, int top, char c)
 {
@@ -47,16 +59,10 @@ int	orderedb(int **stack, int top, char c)
 	int	i;
 
 	i = 1;
-	if (top <= 1)
-	{
-		printf("petit stack donc OK\n");
+	if (top == 1)
 		return (1);
-	}
 	if ((top == 2) && ((*stack)[i - 1] < (*stack)[i]))
-	{
-		swap(stack, top - 1, 'b');
 		return (1);
-	}
 	while (i <= top)
 	{
 		if ((*stack)[i - 1] > (*stack)[i])
@@ -70,60 +76,54 @@ int	orderedb(int **stack, int top, char c)
 	return (1);
 }
 
-void	quicksort_a(int **stack_a, int *topa, int **stack_b, int *topb)
+void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push)
 {
-	int	rest;
+	int	push_b;
 	int	pivot;
-	int	push;
 	int	i;
 
-	rest = *topa + 1;
-	push = 0;
-	printf("ONE QUICK\n");
-	if (ordered(stack_a, rest, 'a'))
+	push_b = 0;
+	if (ordered(stack_a, push, 'a'))
 		return ;
-	pivot = returnpivot(*stack_a, rest);
-	while (rest)
+	pivot = returnpivot(*stack_a, push);
+	while (push)
 	{
-		if ((*stack_a)[*topa] < pivot)
+		if ((*stack_a)[(*top).a] < pivot)
 		{
-			pushb(stack_a, stack_b, topa, topb);
-			++push;
+			pushb(stack_a, stack_b, top);
+			++push_b;
 		}
 		else
-			rot(stack_a, *topa, 'a');
-		printall(*stack_a, *topa, *stack_b, *topb);
-		--rest;
+			rot(stack_a, (*top).a, 'a');
+		--push;
 	}
-	quicksort_a(stack_a, topa, stack_b, topb);
-	//quicksort_b(stack_a, topa, stack_b, topb);
+	quicksort_a(stack_a, stack_b, top, (*top).a);
+	quicksort_b(stack_a, stack_b, top, push_b);
 }
 
-void	quicksort_b(int **stack_a, int *topa, int **stack_b, int *topb)
+void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push)
 {
-	int	rest;
 	int	pivot;
-	int	push;
 	int	i;
+	int	push_a;
 
-	rest = *topa + 1;
-	push = 0;
-	printf("QUICKSORT B\n");
-	if (orderedb(stack_a, rest, 'a'))
-		return ;
-	pivot = returnpivot(*stack_a, rest);
-	while (rest)
+	push_a = 0;
+	printf("sortie de B avec psuh : %d\n",push);
+	if (orderedb(stack_b, push, 'b'))
+		return (pushback_a(stack_a, stack_b, top, push));
+	pivot = returnpivot(*stack_b, push);
+	while (push)
 	{
-		if ((*stack_a)[*topa] < pivot)
+		if ((*stack_b)[(*top).b] > pivot)
 		{
-			pushb(stack_a, stack_b, topa, topb);
-			++push;
+			pusha(stack_a, stack_b, top);
+			++push_a;
 		}
 		else
-			rot(stack_a, *topa, 'a');
-		printall(*stack_a, *topa, *stack_b, *topb);
-		--rest;
+			rot(stack_b, (*top).b, 'b');
+		--push;
 	}
-	quicksort_a(stack_a, topa, stack_b, topb);
-	quicksort_b(stack_a, topa, stack_b, topb);
+	quicksort_a(stack_a, stack_b, top, push_a);
+	printf("Call printb");
+	quicksort_b(stack_a, stack_b, top, push);
 }

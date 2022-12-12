@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:06:34 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/11 18:27:14 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/12 12:08:44 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	printall(int *stack_a, int topa, int *stack_b, int topb)
 	printf(" A  B\n");
 }
 
-int	checker(int *stack, int top, char *toadd)
+int	checker(int *stack, t_tops *top, char *toadd)
 {
 	int	i;
 	int	nb;
@@ -50,7 +50,7 @@ int	checker(int *stack, int top, char *toadd)
 	}
 	i = 0;
 	nb = atoi(toadd);
-	while (i < top)
+	while (i < (*top).a)
 	{
 		if (stack[i] == nb)
 			return (0);
@@ -59,7 +59,7 @@ int	checker(int *stack, int top, char *toadd)
 	return (1);
 }
 
-int	*stackcrea(int argc, char **argv, int *topa, int **stack_a)
+int	*stackcrea(int argc, char **argv, t_tops *top, int **stack_a)
 {
 	if (argc <= 2)
 	{
@@ -68,14 +68,14 @@ int	*stackcrea(int argc, char **argv, int *topa, int **stack_a)
 	}
 	while (argc > 1)
 	{
-		*topa += 1;
+		(*top).a += 1;
 		--argc;
-		if (!checker(*stack_a, *topa, argv[argc]))
+		if (!checker(*stack_a, top, argv[argc]))
 		{
 			printf("Error : dupplicated arg\n");
 			return (0);
 		}
-		(*stack_a)[*topa] = atoi(argv[argc]);
+		(*stack_a)[(*top).a] = atoi(argv[argc]);
 	}
 	return (*stack_a);
 }

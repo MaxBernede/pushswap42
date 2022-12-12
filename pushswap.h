@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:19:46 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/12 11:54:10 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/12 12:24:07 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ typedef	struct top
 
 void	printstack(int *stack, int top);
 void	printall(int *stack_a, int topa, int *stack_b, int topb);
-int		checker(int *stack, int top, char *toadd);
-int		*stackcrea(int argc, char **argv, int *topa, int **stack_a);
+int		checker(int *stack, t_tops *top, char *toadd);
+int		*stackcrea(int argc, char **argv, t_tops *top, int **stack_a);
 
-void	pusha(int **stack_a, int **stack_b, int *topa, int *topb);
-void	pushb(int **stack_a, int **stack_b, int *topa, int *topb);
+void	pusha(int **stack_a, int **stack_b, t_tops *top);
+void	pushb(int **stack_a, int **stack_b, t_tops *top);
 void	swap(int **stack, int top, char c);
 void	swaps(int **stack_a, int **stack_b, int topa, int topb);
 
@@ -38,6 +38,7 @@ int		returnpivot(int *stack, int top);
 
 int		ordered(int **stack, int top, char c);
 
-void	quicksort_a(int **stack_a, int *topa, int **stack_b, int *topb);
+void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push);
+void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push);
 
 #endif

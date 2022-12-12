@@ -6,36 +6,36 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/10 18:32:26 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/12 12:17:51 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "pushswap.h"
 
-void	pusha(int **stack_a, int **stack_b, int *topa, int *topb)
+void	pusha(int **stack_a, int **stack_b, t_tops *top)
 {
-	if (*topb < 0)
+	if ((*top).b < 0)
 	{
 		printf("stack B empty, no push\n");
 		return ;
 	}
-	*topa += 1;
-	(*stack_a)[*topa] = (*stack_b)[*topb];
-	*topb -= 1;
+	(*top).a += 1;
+	(*stack_a)[(*top).a] = (*stack_b)[(*top).b];
+	(*top).b -= 1;
 	printf("pa\n");
 }
 
-void	pushb(int **stack_a, int **stack_b, int *topa, int *topb)
+void	pushb(int **stack_a, int **stack_b, t_tops *top)
 {
-	if (*topa < 0)
+	if ((*top).a < 0)
 	{
 		printf("stack A empty, no push\n");
 		return ;
 	}
-	*topb += 1;
-	(*stack_b)[*topb] = (*stack_a)[*topa];
-	*topa -= 1;
+	(*top).b += 1;
+	(*stack_b)[(*top).b] = (*stack_a)[(*top).a];
+	(*top).a -= 1;
 	printf("pb\n");
 }
 
