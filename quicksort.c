@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:42:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 13:47:53 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/13 15:26:16 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	ordered(int **stack, int push, char c, t_tops *top)
 	int	i;
 
 	i = 1;
-	//printf("Ordered A check et push %d\n", push);
 	if (push <= 1)
 		return (1);
 	if ((push == 2) && ((*stack)[top->a - 1] < (*stack)[top->a]))
@@ -41,7 +40,6 @@ int	ordered(int **stack, int push, char c, t_tops *top)
 	}
 	while (i < push)
 	{
-		//printf("a check %d %d\n",(*stack)[top->a-i],(*stack)[top->a-i + 1]);
 		if ((*stack)[top->a - i] < (*stack)[top->a - i + 1])
 			return (0);
 		++i;
@@ -63,7 +61,6 @@ int	orderedb(int **stack, int push, char c, t_tops *top)
 	}
 	while (i < push)
 	{
-		//printf("CHECK DE %d et %d\n",(*stack)[top->b - i],(*stack)[top->b - i + 1]);
 		if ((*stack)[top->b - i] > (*stack)[top->b - i + 1])
 			return (0);
 		++i;
@@ -76,13 +73,11 @@ void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push)
 	int	push_b;
 	int	pivot;
 	int	i;
-	int itenb;
+	int	itenb;
 
 	i = push;
 	itenb = 0;
 	push_b = 0;
-	//printf("quicka : push : %d\n",push);
-	//printall(*stack_a, top->a, *stack_b, top->b);
 	if (ordered(stack_a, push, 'a', top))
 		return ;
 	pivot = returnpivot(*stack_a, push, top->a);
@@ -108,12 +103,10 @@ void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push)
 	int	i;
 	int	push_a;
 	int	itenb;
-	
+
 	i = push;
 	itenb = 0;
 	push_a = 0;
-	//printf("quickb : push : %d\n",push);
-	//printall(*stack_a, top->a, *stack_b, top->b);
 	if (orderedb(stack_b, push, 'b', top))
 		return (pushback_a(stack_a, stack_b, top, push));
 	pivot = returnpivot(*stack_b, push, top->b);
@@ -130,5 +123,5 @@ void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push)
 	}
 	backb(stack_b, top->b, itenb, push_a);
 	quicksort_a(stack_a, stack_b, top, push_a);
-	quicksort_b(stack_a, stack_b, top, i-push_a);
+	quicksort_b(stack_a, stack_b, top, i - push_a);
 }

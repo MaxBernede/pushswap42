@@ -34,9 +34,9 @@ void	swaps(int **stack_a, int **stack_b, int topa, int topb);
 void	rotabs(int **stack_a, int **stack_b, int topa, int topb);
 int		rota(int **stack, int top, char c);
 int		rotb(int **stack, int top, char c);
-void	revrotabs(int **stack_a, int **stack_b, int topa, int topb);
 void	revrota(int **stack, int top, char c);
 void	revrotb(int **stack, int top, char c);
+void	revrotabs(int **stack_a, int **stack_b, int topa, int topb);
 
 int		returnpivot(int *stack, int push, int top);
 void	backa(int **stack, int top, int itenb, int pushn);

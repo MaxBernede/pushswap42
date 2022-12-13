@@ -6,12 +6,13 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:06:34 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 14:23:52 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/13 15:19:27 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "pushswap.h"
 
 void	backb(int **stack, int top, int itenb, int pushn)
@@ -21,20 +22,15 @@ void	backb(int **stack, int top, int itenb, int pushn)
 		revrotb(stack, top, 'b');
 		--itenb;
 	}
-	// while (itenb <= (top + pushn))
-	// 	{
-	// 		rot(stack, top, 'b');
-	// 		++itenb;
-	// 	}
 }
 
 void	backa(int **stack, int top, int itenb, int pushn)
 {
 	while ((itenb - pushn))
-		{
-			revrota(stack, top, 'a');
-			--itenb;
-		}
+	{
+		revrota(stack, top, 'a');
+		--itenb;
+	}
 }
 
 void	printall(int *stack_a, int topa, int *stack_b, int topb)
@@ -88,7 +84,7 @@ int	*stackcrea(int argc, char **argv, t_tops *top, int **stack_a)
 {
 	if (argc <= 2)
 	{
-		printf("Error : Not enough args\n");
+		write(1, "Error\n", 6);
 		return (NULL);
 	}
 	while (argc > 1)
@@ -97,7 +93,7 @@ int	*stackcrea(int argc, char **argv, t_tops *top, int **stack_a)
 		--argc;
 		if (!checker(*stack_a, top, argv[argc]))
 		{
-			printf("Error : duplicated arg\n");
+			write(1, "Error\n", 6);
 			return (0);
 		}
 		(*stack_a)[(*top).a] = atoi(argv[argc]);

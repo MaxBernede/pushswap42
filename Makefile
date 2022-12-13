@@ -6,7 +6,7 @@
 #    By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/13 01:44:09 by kyuuh             #+#    #+#              #
-#    Updated: 2022/12/13 12:53:41 by kyuuh            ###   ########.fr        #
+#    Updated: 2022/12/13 15:23:49 by kyuuh            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS =  pushswap.c\
 		rotas.c\
 		swappush.c\
 		utils.c\
+		revrota.c\
 
 CC = cc
 

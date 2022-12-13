@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 13:31:47 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/13 15:20:29 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,22 @@
 int	pusha(int **stack_a, int **stack_b, t_tops *top)
 {
 	if ((*top).b < 0)
-	{
-		printf("stack B empty, no push\n");
 		return (0);
-	}
 	(*top).a += 1;
 	(*stack_a)[(*top).a] = (*stack_b)[(*top).b];
 	(*top).b -= 1;
-	write(1,"pa\n",3);
+	write(1, "pa\n", 3);
 	return (1);
 }
 
 int	pushb(int **stack_a, int **stack_b, t_tops *top)
 {
 	if ((*top).a < 0)
-	{
-		printf("stack A empty, no push\n");
 		return (0);
-	}
 	(*top).b += 1;
 	(*stack_b)[(*top).b] = (*stack_a)[(*top).a];
 	(*top).a -= 1;
-	write(1,"pb\n",3);
+	write(1, "pb\n", 3);
 	return (1);
 }
 
@@ -47,15 +41,12 @@ void	swapa(int **stack, int top, char c)
 	int	temp;
 
 	if (top <= 0)
-	{
-		printf("not enough in stack b for swap\n");
 		return ;
-	}
 	temp = (*stack)[top];
 	(*stack)[top] = (*stack)[top - 1];
 	(*stack)[top - 1] = temp;
 	if (c == 'a')
-		write(1, "sa\n",  3);
+		write(1, "sa\n", 3);
 }
 
 void	swapb(int **stack, int top, char c)
