@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:42:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 00:48:10 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/13 00:59:07 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	orderedb(int **stack, int push, char c, t_tops *top)
 	}
 	while (i < push)
 	{
-		printf("CHECK DE %d et %d\n",(*stack)[top->b - i],(*stack)[top->b - i + 1]);
+		//printf("CHECK DE %d et %d\n",(*stack)[top->b - i],(*stack)[top->b - i + 1]);
 		if ((*stack)[top->b - i] > (*stack)[top->b - i + 1])
 			return (0);
 		++i;
