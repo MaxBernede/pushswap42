@@ -27,13 +27,16 @@ int		*stackcrea(int argc, char **argv, t_tops *top, int **stack_a);
 
 int		pusha(int **stack_a, int **stack_b, t_tops *top);
 int		pushb(int **stack_a, int **stack_b, t_tops *top);
-void	swap(int **stack, int top, char c);
+void	swapa(int **stack, int top, char c);
+void	swapb(int **stack, int top, char c);
 void	swaps(int **stack_a, int **stack_b, int topa, int topb);
 
 void	rotabs(int **stack_a, int **stack_b, int topa, int topb);
-int		rot(int **stack, int top, char c);
+int		rota(int **stack, int top, char c);
+int		rotb(int **stack, int top, char c);
 void	revrotabs(int **stack_a, int **stack_b, int topa, int topb);
-void	revrot(int **stack, int top, char c);
+void	revrota(int **stack, int top, char c);
+void	revrotb(int **stack, int top, char c);
 
 int		returnpivot(int *stack, int push, int top);
 void	backa(int **stack, int top, int itenb, int pushn);

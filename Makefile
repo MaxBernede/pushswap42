@@ -6,7 +6,7 @@
 #    By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/13 01:44:09 by kyuuh             #+#    #+#              #
-#    Updated: 2022/12/13 02:18:41 by kyuuh            ###   ########.fr        #
+#    Updated: 2022/12/13 12:53:41 by kyuuh            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,5 +35,7 @@ clean :
 
 fclean : clean
 	rm -rf $(NAME)
+
+re :	clean all
 
 .PHONY: re fclean all

@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:42:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 01:19:12 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/13 13:47:53 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ordered(int **stack, int push, char c, t_tops *top)
 		return (1);
 	if ((push == 2) && ((*stack)[top->a - 1] < (*stack)[top->a]))
 	{
-		swap(stack, top->a, 'a');
+		swapa(stack, top->a, 'a');
 		return (1);
 	}
 	while (i < push)
@@ -58,7 +58,7 @@ int	orderedb(int **stack, int push, char c, t_tops *top)
 		return (1);
 	if ((push == 2) && ((*stack)[top->b - 1] > (*stack)[top->b]))
 	{
-		swap(stack, top->b, 'b');
+		swapb(stack, top->b, 'b');
 		return (1);
 	}
 	while (i < push)
@@ -94,7 +94,7 @@ void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push)
 			++push_b;
 		}
 		else
-			itenb += rot(stack_a, (*top).a, 'a');
+			itenb += rota(stack_a, (*top).a, 'a');
 		--push;
 	}
 	backa(stack_a, top->a, itenb, push_b);
@@ -125,10 +125,10 @@ void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push)
 			++push_a;
 		}
 		else
-			itenb += rot(stack_b, (*top).b, 'b');
+			itenb += rotb(stack_b, (*top).b, 'b');
 		--push;
 	}
-	backa(stack_b, top->b, itenb, push_a);
+	backb(stack_b, top->b, itenb, push_a);
 	quicksort_a(stack_a, stack_b, top, push_a);
 	quicksort_b(stack_a, stack_b, top, i-push_a);
 }
