@@ -6,20 +6,12 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:22:46 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 01:19:24 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/13 01:21:59 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-
-// void printArray(int arr[], int n)
-// {
-//     int i;
-//     for (i = 0; i < n; i++)
-//         printf("%d ", arr[i]);
-//     printf("\n");
-// }
 
 void	sort(int **arr, int n)
 {
@@ -57,6 +49,5 @@ int	returnpivot(int *stack, int push, int top)
 	sort(&temp, push);
 	pivot = temp[(push / 2)];
 	free(temp);
-	//printf("pivot mon couillon %d\n", pivot);
 	return (pivot);
 }

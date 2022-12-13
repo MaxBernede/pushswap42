@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:06:34 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 01:16:55 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/13 01:28:06 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,24 @@
 
 void	backb(int **stack, int top, int itenb, int pushn)
 {
-	while (itenb <= (top + pushn))
-		{
-			rot(stack, top, 'b');
-			++itenb;
-		}
+	while ((itenb - pushn))
+	{
+		revrot(stack, top, 'a');
+		--itenb;
+	}
+	// while (itenb <= (top + pushn))
+	// 	{
+	// 		rot(stack, top, 'b');
+	// 		++itenb;
+	// 	}
 }
 
 void	backa(int **stack, int top, int itenb, int pushn)
 {
-	while (itenb <= (top + pushn))
+	while ((itenb - pushn))
 		{
-			rot(stack, top, 'a');
-			++itenb;
+			revrot(stack, top, 'a');
+			--itenb;
 		}
 }
 

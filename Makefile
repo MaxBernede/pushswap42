@@ -1,17 +1,34 @@
-SRCS =  push_swap.c
-		
-SURPL_O = 	push_swap.o
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/13 01:44:09 by kyuuh             #+#    #+#              #
+#    Updated: 2022/12/13 02:18:41 by kyuuh            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC = gcc
+NAME := push_swap
 
-FLAGS = -c -Wall -Wextra -Werror
+SRCS =  pushswap.c\
+		pivottemp.c\
+		quicksort.c\
+		rotas.c\
+		swappush.c\
+		utils.c\
+
+CC = cc
+
+FLAGS = -Wall -Wextra -Werror
 
 OBJS = $(SRCS:.c=.o)
 
-$(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(SRCS)
-
 all : $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(FLAGS) -o $@ $^
 
 clean :
 	rm -rf $(OBJS)
@@ -19,4 +36,4 @@ clean :
 fclean : clean
 	rm -rf $(NAME)
 
-re : fclean all
+.PHONY: re fclean all
