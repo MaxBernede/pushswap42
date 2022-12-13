@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:22:46 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/12 18:20:32 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/13 01:19:24 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ int	returnpivot(int *stack, int push, int top)
 	sort(&temp, push);
 	pivot = temp[(push / 2)];
 	free(temp);
-	printf("pivot mon couillon %d\n", pivot);
+	//printf("pivot mon couillon %d\n", pivot);
 	return (pivot);
 }

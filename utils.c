@@ -6,13 +6,22 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:06:34 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 01:11:05 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/13 01:16:55 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "pushswap.h"
+
+void	backb(int **stack, int top, int itenb, int pushn)
+{
+	while (itenb <= (top + pushn))
+		{
+			rot(stack, top, 'b');
+			++itenb;
+		}
+}
 
 void	backa(int **stack, int top, int itenb, int pushn)
 {

@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:10:02 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/12 13:09:33 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/13 01:19:48 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (0);
 	quicksort_a(&stack_a, &stack_b, &top, (top.a + 1));
-	printall(stack_a, top.a, stack_b, top.b);
+	//printall(stack_a, top.a, stack_b, top.b);
 	return (0);
 }
 
