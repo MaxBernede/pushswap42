@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:42:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 15:26:16 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/14 00:16:13 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push)
 	i = push;
 	itenb = 0;
 	push_b = 0;
+	// if (push == 3)
+	// 	smallsorta(stack_a, 'a', top->a);
 	if (ordered(stack_a, push, 'a', top))
 		return ;
 	pivot = returnpivot(*stack_a, push, top->a);
@@ -107,6 +109,8 @@ void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push)
 	i = push;
 	itenb = 0;
 	push_a = 0;
+	// if (push == 3)
+	// 	smallsortb(stack_b, top->b);
 	if (orderedb(stack_b, push, 'b', top))
 		return (pushback_a(stack_a, stack_b, top, push));
 	pivot = returnpivot(*stack_b, push, top->b);

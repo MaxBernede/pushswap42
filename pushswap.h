@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:19:46 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 01:17:08 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/14 00:08:40 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +43,7 @@ void	backb(int **stack, int top, int itenb, int pushn);
 
 void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push);
 void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push);
+void	smallsorta(int **stack, char e, int top);
+void	smallsortb(int **stack, int top);
 
 #endif
