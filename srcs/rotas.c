@@ -6,13 +6,35 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:38:32 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 15:23:25 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/14 13:58:24 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
-#include "pushswap.h"
+#include "../pushswap.h"
+
+void	issmola(int **stack, char e, int top, int push)
+{
+	if (push == 3)
+	{
+		if (top == 2)
+			smallsorta(stack, e, top);
+		else
+			smola(stack, e, top);
+	}
+}
+
+void	issmolb(int **stack, char e, int top, int push)
+{
+	if (push == 3)
+	{
+		if (top == 2)
+			smallsortb(stack, top);
+		else
+			smolb(stack, e, top);
+	}
+}
 
 int	rota(int **stack, int top, char c)
 {

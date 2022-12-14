@@ -6,14 +6,14 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:06:34 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 15:19:27 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/14 13:28:11 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "pushswap.h"
+#include "../pushswap.h"
 
 void	backb(int **stack, int top, int itenb, int pushn)
 {

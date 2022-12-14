@@ -6,17 +6,17 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:19:46 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/14 00:08:40 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/14 14:01:52 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
-typedef	struct top
+typedef struct top
 {
-	int a;
-	int b;
+	int	a;
+	int	b;
 }	t_tops;
 
 void	printstack(int *stack, int top);
@@ -45,5 +45,12 @@ void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push);
 void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push);
 void	smallsorta(int **stack, char e, int top);
 void	smallsortb(int **stack, int top);
+
+void	smola(int **stack, char e, int top);
+void	endsmola(int **stack, char e, int top);
+void	smolb(int **stack, char e, int top);
+void	endsmolb(int **stack, char e, int top);
+void	issmola(int **stack, char e, int top, int push);
+void	issmolb(int **stack, char e, int top, int push);
 
 #endif

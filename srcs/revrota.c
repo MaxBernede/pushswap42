@@ -6,13 +6,14 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 15:22:53 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 15:23:33 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/14 13:38:18 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include "../pushswap.h"
 
 void	revrota(int **stack, int top, char c)
 {

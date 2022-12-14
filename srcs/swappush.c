@@ -6,13 +6,13 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/13 15:20:29 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/14 13:37:38 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
-#include "pushswap.h"
+#include "../pushswap.h"
 
 int	pusha(int **stack_a, int **stack_b, t_tops *top)
 {
@@ -54,10 +54,7 @@ void	swapb(int **stack, int top, char c)
 	int	temp;
 
 	if (top <= 0)
-	{
-		printf("not enough in stack b for swap\n");
 		return ;
-	}
 	temp = (*stack)[top];
 	(*stack)[top] = (*stack)[top - 1];
 	(*stack)[top - 1] = temp;

@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2top22/12/top9 13:1top:top2 by kyuuh             #+#    #+#             */
-/*   Updated: 2top22/12/13 23:22:47 by kyuuh            ###   ########.fr       */
+/*   Created: 0002/12/09 13:01:00 by top2 by kyu       #+#    #+#             */
+/*   Updated: 2022/12/14 14:01:30 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "pushswap.h"
+#include "../pushswap.h"
 
-int		order(int **stack, char e, int nb)
+int	order(int **stack, char e, int nb)
 {
-	int i;
+	int	i;
 
 	i = nb - 1;
 	while (i)
@@ -30,51 +30,51 @@ int		order(int **stack, char e, int nb)
 
 void	smallsorta(int **stack, char e, int top)
 {
-	if ((*stack)[top] < (*stack)[top - 1] && (*stack)[top] < (*stack)[top - 2]
-	&& (*stack)[top - 1] > (*stack)[top - 2])
+	if ((*stack)[top] < (*stack)[top - 1] && (*stack)[top] <
+	(*stack)[top - 2] && (*stack)[top - 1] > (*stack)[top - 2])
 	{
 		swapa(stack, top, e);
 		rota(stack, top, e);
 	}
-	else if ((*stack)[top] > (*stack)[top - 1] && (*stack)[top] > (*stack)[top - 2]
-	&& (*stack)[top - 1] < (*stack)[top - 2])
+	else if ((*stack)[top] > (*stack)[top - 1] && (*stack)[top] >
+	(*stack)[top - 2] && (*stack)[top - 1] < (*stack)[top - 2])
 		rota(stack, top, e);
-	else if ((*stack)[top] > (*stack)[top - 1] && (*stack)[top] > (*stack)[top - 2]
-	&& (*stack)[top - 1] > (*stack)[top - 2])
+	else if ((*stack)[top] > (*stack)[top - 1] && (*stack)[top] >
+	(*stack)[top - 2] && (*stack)[top - 1] > (*stack)[top - 2])
 	{
 		swapa(stack, top, e);
 		revrota(stack, top, e);
 	}
-	else if ((*stack)[top] > (*stack)[top - 1] && (*stack)[top] < (*stack)[top - 2]
-	&& (*stack)[top - 1] < (*stack)[top - 2])
+	else if ((*stack)[top] > (*stack)[top - 1] && (*stack)[top] <
+	(*stack)[top - 2] && (*stack)[top - 1] < (*stack)[top - 2])
 		swapa(stack, top, e);
-	else if ((*stack)[top] < (*stack)[top - 1] && (*stack)[top] > (*stack)[top - 2]
-	&& (*stack)[top - 1] > (*stack)[top - 2])
+	else if ((*stack)[top] < (*stack)[top - 1] && (*stack)[top] >
+	(*stack)[top - 2] && (*stack)[top - 1] > (*stack)[top - 2])
 		revrota(stack, top, e);
 }
 
 void	smallsortb(int **stack, int top)
 {
-	if ((*stack)[top] > (*stack)[top - 1] && (*stack)[top] > (*stack)[top - 2]
-	&& (*stack)[top - 1] < (*stack)[top - 2])
+	if ((*stack)[top] > (*stack)[top - 1] && (*stack)[top] >
+	(*stack)[top - 2] && (*stack)[top - 1] < (*stack)[top - 2])
 	{
 		swapb(stack, top, 'b');
 		rotb(stack, top, 'b');
 	}
-	else if ((*stack)[top] < (*stack)[top - 1] && (*stack)[top] < (*stack)[top - 2]
-	&& (*stack)[top - 1] > (*stack)[top - 2])
+	else if ((*stack)[top] < (*stack)[top - 1] && (*stack)[top] <
+	(*stack)[top - 2] && (*stack)[top - 1] > (*stack)[top - 2])
 		rotb(stack, top, 'b');
-	else if ((*stack)[top] < (*stack)[top - 1] && (*stack)[top] < (*stack)[top - 2]
-	&& (*stack)[top - 1] < (*stack)[top - 2])
+	else if ((*stack)[top] < (*stack)[top - 1] && (*stack)[top] <
+	(*stack)[top - 2] && (*stack)[top - 1] < (*stack)[top - 2])
 	{
 		swapb(stack, top, 'b');
 		revrotb(stack, top, 'b');
 	}
-	else if ((*stack)[top] < (*stack)[top - 1] && (*stack)[top] > (*stack)[top - 2]
-	&& (*stack)[top - 1] > (*stack)[top - 2])
+	else if ((*stack)[top] < (*stack)[top - 1] && (*stack)[top] >
+	(*stack)[top - 2] && (*stack)[top - 1] > (*stack)[top - 2])
 		swapb(stack, top, 'b');
-	else if ((*stack)[top] > (*stack)[top - 1] && (*stack)[top] < (*stack)[top - 2]
-	&& (*stack)[top - 1] < (*stack)[top - 2])
+	else if ((*stack)[top] > (*stack)[top - 1] && (*stack)[top] <
+	(*stack)[top - 2] && (*stack)[top - 1] < (*stack)[top - 2])
 		revrotb(stack, top, 'b');
 }
 
@@ -97,7 +97,5 @@ int	main(int argc, char **argv)
 		smallsorta(&stack_a, 'a', 2);
 	else
 		quicksort_a(&stack_a, &stack_b, &top, (top.a + 1));
-	//printall(stack_a, top.a, stack_b, top.b);
 	return (0);
 }
-
