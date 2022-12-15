@@ -6,27 +6,12 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 0002/12/09 13:01:00 by top2 by kyu       #+#    #+#             */
-/*   Updated: 2022/12/14 14:01:30 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/15 14:14:54 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "../pushswap.h"
-
-int	order(int **stack, char e, int nb)
-{
-	int	i;
-
-	i = nb - 1;
-	while (i)
-	{
-		if ((*stack)[i] > (*stack)[i - 1])
-			return (1);
-		--i;
-	}
-	return (0);
-}
 
 void	smallsorta(int **stack, char e, int top)
 {

@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:42:38 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/14 14:02:59 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/15 15:11:59 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,10 @@ void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push)
 	itenb = 0;
 	push_b = 0;
 	issmola(stack_a, 'a', top->a, push);
-	if (push == 3)
-		smola(stack_a, 'a', top->a);
 	if (ordered(stack_a, push, 'a', top))
 		return ;
 	pivot = returnpivot(*stack_a, push, top->a);
-	while (push)
+	while (itenb < push)
 	{
 		if ((*stack_a)[(*top).a] < pivot)
 		{
@@ -93,7 +91,6 @@ void	quicksort_a(int **stack_a, int **stack_b, t_tops *top, int push)
 		}
 		else
 			itenb += rota(stack_a, (*top).a, 'a');
-		--push;
 	}
 	backa(stack_a, top->a, itenb, push_b);
 	quicksort_a(stack_a, stack_b, top, i - push_b);
@@ -114,7 +111,7 @@ void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push)
 	if (orderedb(stack_b, push, 'b', top))
 		return (pushback_a(stack_a, stack_b, top, push));
 	pivot = returnpivot(*stack_b, push, top->b);
-	while (push)
+	while (itenb < push)
 	{
 		if ((*stack_b)[(*top).b] > pivot)
 		{
@@ -123,7 +120,6 @@ void	quicksort_b(int **stack_a, int **stack_b, t_tops *top, int push)
 		}
 		else
 			itenb += rotb(stack_b, (*top).b, 'b');
-		--push;
 	}
 	backb(stack_b, top->b, itenb, push_a);
 	quicksort_a(stack_a, stack_b, top, push_a);

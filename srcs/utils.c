@@ -6,7 +6,7 @@
 /*   By: kyuuh <kyuuh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:06:34 by kyuuh             #+#    #+#             */
-/*   Updated: 2022/12/14 13:28:11 by kyuuh            ###   ########.fr       */
+/*   Updated: 2022/12/15 14:12:35 by kyuuh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,32 +33,34 @@ void	backa(int **stack, int top, int itenb, int pushn)
 	}
 }
 
-void	printall(int *stack_a, int topa, int *stack_b, int topb)
+long int	ft_atoilong(char *str)
 {
-	int	i;
+	int			i;
+	long int	number;
+	long int	neg;
 
-	if (topa > topb)
-		i = topa;
-	else
-		i = topb;
-	while (i >= 0)
+	number = 0;
+	i = 0;
+	neg = 1;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		if (i <= topa)
-			printf("%d  ", stack_a[i]);
-		else
-			printf("   ");
-		if (i <= topb)
-			printf("%d", stack_b[i]);
-		printf("\n");
-		--i;
+		if (str[i] == '-')
+			neg *= -1;
+		++i;
 	}
-	printf(" A  B\n");
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		number = (number * 10) + (str[i] - 48);
+		++i;
+	}
+	number *= neg;
+	return (number);
 }
 
 int	checker(int *stack, t_tops *top, char *toadd)
 {
-	int	i;
-	int	nb;
+	int			i;
+	long int	nb;
 
 	i = 0;
 	if (toadd[i] == '-')
@@ -70,10 +72,12 @@ int	checker(int *stack, t_tops *top, char *toadd)
 		++i;
 	}
 	i = 0;
-	nb = atoi(toadd);
+	nb = ft_atoilong(toadd);
+	if (nb < -2147483648 || nb > 2147483647)
+		return (0);
 	while (i < (*top).a)
 	{
-		if (stack[i] == nb)
+		if (stack[i] == (int)nb)
 			return (0);
 		++i;
 	}
@@ -96,7 +100,7 @@ int	*stackcrea(int argc, char **argv, t_tops *top, int **stack_a)
 			write(1, "Error\n", 6);
 			return (0);
 		}
-		(*stack_a)[(*top).a] = atoi(argv[argc]);
+		(*stack_a)[(*top).a] = (int)ft_atoilong(argv[argc]);
 	}
 	return (*stack_a);
 }
